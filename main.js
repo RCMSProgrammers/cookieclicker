@@ -13668,6 +13668,7 @@ Game.Launch=function()
 		}
 		Game.cheater=function() {
 			Game.cheated = true;
+		}
 		Game.debugTimersOn=0;
 		Game.sesame=0;
 		Game.OpenSesame=function()
