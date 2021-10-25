@@ -624,7 +624,6 @@ Game.Launch=function()
 		easterDay=Math.floor((easterDay-new Date(easterDay.getFullYear(),0,0))/(1000*60*60*24));
 		if (day>=easterDay-7 && day<=easterDay) Game.baseSeason='easter';
 	}
-	if 
 	Game.updateLog=
 	'<div class="selectable">'+
 	'<div class="section">Info</div>'+
