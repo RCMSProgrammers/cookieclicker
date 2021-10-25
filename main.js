@@ -13576,7 +13576,7 @@ Game.Launch=function()
 				}
 			}
 			if (Game.opensesame == 1) {
-				Game.cheater()
+				Game.cheater();
 			}
 		};
 		
