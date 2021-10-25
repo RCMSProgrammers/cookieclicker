@@ -1,4 +1,4 @@
-﻿/*
+/*
 All this code is copyright Orteil, 2013-2020.
 	-with some help, advice and fixes by Nicholas Laux, Debugbro, Opti, and lots of people on reddit, Discord, and the DashNet forums
 	-also includes a bunch of snippets found on stackoverflow.com and others
@@ -592,7 +592,6 @@ var Game={};
 
 Game.Launch=function()
 {
-	
 	Game.version=VERSION;
 	Game.beta=BETA;
 	if (window.location.href.indexOf('/beta')>-1) Game.beta=1;
@@ -624,6 +623,7 @@ Game.Launch=function()
 		easterDay=Math.floor((easterDay-new Date(easterDay.getFullYear(),0,0))/(1000*60*60*24));
 		if (day>=easterDay-7 && day<=easterDay) Game.baseSeason='easter';
 	}
+	
 	Game.updateLog=
 	'<div class="selectable">'+
 	'<div class="section">Info</div>'+
@@ -1647,7 +1647,7 @@ Game.Launch=function()
 			Game.bakeryNameL.textContent=name;
 			name=Game.bakeryName.toLowerCase();
 			if (name=='orteil') Game.Win('God complex');
-			// if (name.indexOf('saysopensesame',name.length-('saysopensesame').length)>0 && !Game.sesame) Game.OpenSesame();
+			if (name.indexOf('saysopensesame',name.length-('saysopensesame').length)>0 && !Game.sesame) Game.OpenSesame();
 			Game.recalculateGains=1;
 		}
 		Game.bakeryNamePrompt=function()
@@ -13571,12 +13571,7 @@ Game.Launch=function()
 					if (goodBuff && Game.prefs.fancy) ctx.globalCompositeOperation='lighter';
 					ctx.drawImage(Pic(borders),0,0,ctx.canvas.width,ctx.canvas.height);
 					if (goodBuff && Game.prefs.fancy) ctx.globalCompositeOperation='source-over';
-					
-				
 				}
-			}
-			if (Game.opensesame == 1) {
-				Game.cheater();
 			}
 		};
 		
@@ -13666,15 +13661,12 @@ Game.Launch=function()
 			Game.bakeryNameRefresh();
 			Game.Achievements['Cheated cookies taste awful'].won=1;
 		}
-		Game.cheater=function() {
-			Game.cheated = true;
-		}
+		
 		Game.debugTimersOn=0;
 		Game.sesame=0;
 		Game.OpenSesame=function()
 		{
-			Game.cheater();
-			/*var str='';
+			var str='';
 			str+='<div class="icon" style="position:absolute;left:-9px;top:-6px;background-position:'+(-10*48)+'px '+(-6*48)+'px;"></div>';
 			str+='<div style="position:absolute;left:0px;top:0px;z-index:10;font-size:10px;background:#000;padding:1px;" id="fpsCounter"></div>';
 			
@@ -13702,7 +13694,7 @@ Game.Launch=function()
 			str+='<a class="option neato" '+Game.clickStr+'="Game.SetAllAchievs(1);">All achievs</a><br>';
 			str+='<a class="option neato" '+Game.clickStr+'="Game.santaLevel=0;Game.dragonLevel=0;">Reset specials</a>';
 			str+='<a class="option neato" '+Game.clickStr+'="Game.MaxSpecials();">Max specials</a><br>';
-			str+='<a class="option neato" '+Game.clickStr+'="Game.lumpRefill=0;/*Date.now()-Game.getLumpRefillMax();*//*">Reset refills</a>';
+			str+='<a class="option neato" '+Game.clickStr+'="Game.lumpRefill=0;/*Date.now()-Game.getLumpRefillMax();*/">Reset refills</a>';
 			str+='<a class="option neato" '+Game.clickStr+'="Game.EditAscend();">'+(Game.DebuggingPrestige?'Exit Ascend Edit':'Ascend Edit')+'</a>';
 			str+='<a class="option neato" '+Game.clickStr+'="Game.DebugUpgradeCpS();">Debug upgrades CpS</a>';
 			str+='<a class="option neato" '+Game.clickStr+'="Game.seed=Game.makeSeed();">Re-seed</a>';
@@ -13740,7 +13732,7 @@ Game.Launch=function()
 			l('debug').style.display='block';
 			Game.sesame=1;
 			Game.Achievements['Cheated cookies taste awful'].won=1;
-		}*/
+		}
 		
 		Game.EditAscend=function()
 		{
@@ -13800,7 +13792,7 @@ Game.Launch=function()
 		}
 		
 		Game.ready=1;
-		//setTimeout(function(){if (typeof showAds==='undefined' && (!l('detectAds') || l('detectAds').clientHeight<1)) Game.addClass('noAds');},500);
+		setTimeout(function(){if (typeof showAds==='undefined' && (!l('detectAds') || l('detectAds').clientHeight<1)) Game.addClass('noAds');},500);
 		l('javascriptError').innerHTML='';
 		l('javascriptError').style.display='none';
 		Game.Loop();
